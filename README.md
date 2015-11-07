@@ -1,2 +1,1 @@
-# unicap
-Unicap is a general distributed computing engine.
+# UniCAP: Unified Computing Engine for Fast Data Processing
