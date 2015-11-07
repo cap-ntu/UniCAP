@@ -1,0 +1,11 @@
+application_name: test
+jobtracker_host: BDP-00
+jobtracker_port: 34000
+hdfs_namenode_host: BDP-00
+hdfs_namenode_port: 9000
+hdfs_output_dir: /unicap/
+
+jobtracker_threads: 50
+
+tasktracker_worker_threads: 10
+tasktracker_network_threads: 50
