@@ -71,7 +71,9 @@
 
 <h4 id="span-stylecolor-bluec-compilerspan"><span style="color: blue">C++ Compiler</span></h4>
 
-<p>UniCAP needs a C++ compiler supporting c++11, such as gcc &gt;= 4.7.2 (prefer &gt;= 4.8) or llvm &gt;= 3.4. You can update gcc via either downloading packages, or building from source. For instance, we can upgrade gcc via ppa in ubuntu:</p>
+<p>UniCAP needs a C++ compiler supporting c++11, such as gcc &gt;= 4.7.2 (prefer &gt;= 4.8) or llvm &gt;= 3.4. You can update gcc via either downloading packages, or building from source.</p>
+
+<p><strong>1) Ubuntu 12.04</strong></p>
 
 <pre><code>sudo apt-get install python-software-properties
 sudo add-apt-repository ppa:ubuntu-toolchain-r/test
@@ -88,24 +90,45 @@ sudo update-alternatives --config g++
 <pre><code>gcc --version
 </code></pre>
 
+<p>2) <strong>2) Ubuntu 14.04</strong></p>
+
+<p>Ubuntu 14.04 contains gcc-4.8 in its system software system. 
+Check the gcc version:</p>
+
+<pre><code>gcc --version 
+</code></pre>
+
+<hr />
+
 <h4 id="span-stylecolor-blueboost-libraryspan"><span style="color: blue">Boost Library</span></h4>
 
-<p>UniCAP needs boost library &gt;= 1.54 (prefer &gt;= 1.55). You can install boost via ppa in ubuntu:</p>
+<p>UniCAP needs boost library &gt;= 1.54 (prefer &gt;= 1.55).</p>
 
-<p>1) Add ppa:boost-latest/ppa to your system’s software sources based on the instructions in</p>
+<p><strong>1) Ubuntu 12.04</strong></p>
 
-<pre><code>https://launchpad.net/~boost-latest/+archive/ubuntu/ppa
+<p>You can install boost via ppa in ubuntu 12.04:</p>
+
+<p>Add ppa:boost-latest/ppa to your system’s software sources based on the instructions in</p>
+
+<p><a href="https://launchpad.net/~boost-latest/+archive/ubuntu/ppa">https://launchpad.net/~boost-latest/+archive/ubuntu/ppa</a></p>
+
+<p>Update your system’s software sources:</p>
+
+<pre><code>sudo apt-get update
 </code></pre>
 
-<p>2) Update your system’s software sources:</p>
-
-<pre><code>sudo apt-get update'
-</code></pre>
-
-<p>3) Install boost 1.55:</p>
+<p>Install boost 1.55:</p>
 
 <pre><code>sudo apt-get install libboost1.55-all-dev
 </code></pre>
+
+<p><strong>2) Ubuntu 14.04</strong></p>
+
+<p>Ubuntu 14.04 contains boost1.55</p>
+
+ 	sudo apt-get install libboost1.55-all-dev
+
+<hr />
 
 <h4 id="span-stylecolor-bluethriftspan"><span style="color: blue">Thrift</span></h4>
 
@@ -125,16 +148,13 @@ make
 sudo make install
 </code></pre>
 
+<hr />
+
 <h4 id="span-stylecolor-blueglog-and-gflagsspan"><span style="color: blue">Glog and Gflags</span></h4>
 
 <p>UniCAP uses glog and gflags to print log data.</p>
 
-<h5 id="ubuntu-1404">Ubuntu 14.04</h5>
-
-<pre><code>sudo apt-get install libgflags-dev libgoogle-glog-dev
-</code></pre>
-
-<h5 id="ubuntu-1204">Ubuntu 12.04</h5>
+<p><strong>1) Ubuntu 12.04</strong></p>
 
 <p>Install Glog</p>
 
@@ -157,11 +177,30 @@ make
 sudo make install
 </code></pre>
 
+<p><strong>2) Ubuntu 14.04</strong></p>
+
+<p>sudo apt-get install libgflags-dev libgoogle-glog-dev</p>
+
+<hr />
+
 <h4 id="span-stylecolor-blueleveldbspan"><span style="color: blue">LevelDB</span></h4>
 
 <p>UniCAP uses LevelDB as one of its storage systems.</p>
 
 <pre><code>sudo apt-get install libleveldb-dev libsnappy-dev
+</code></pre>
+
+<hr />
+
+<h4 id="span-stylecolor-blueopencv2span"><span style="color: blue">OpenCV2</span></h4>
+
+<p>UniCAP uses OpenCV2 run image related applictions.</p>
+
+<pre><code>wget https://github.com/Itseez/opencv/archive/2.4.11.zip
+unzip 2.4.11.zip
+./configure
+make 
+sudo make install ---
 </code></pre>
 
 <h4 id="span-stylecolor-bluempispan"><span style="color: blue">MPI</span></h4>
@@ -171,11 +210,13 @@ sudo make install
 <pre><code>sudo apt-get install libopenmpi-dev openmpi-bin openmpi-common openmpi-doc
 </code></pre>
 
+<hr />
+
 <h4 id="span-stylecolor-bluehdfsspan"><span style="color: blue">HDFS</span></h4>
 
 <p>To work with Hadoop Distributed File System using C++, there are two choices:</p>
 
-<p>1) libhdfs3</p>
+<p><strong>1) libhdfs3</strong></p>
 
 <p>Libhdfs3 a native c/c++ hdfs client (there is no need to rely Java to work with HDFS in application layer).</p>
 
@@ -188,7 +229,7 @@ sudo apt-get install libkrb5-dev libxml2-dev libuuid1 uuid-dev
 sudo apt-get install libgsasl7 libgsasl7-dev 
 </code></pre>
 
-<p>2) libhdfs</p>
+<p><strong>2) libhdfs</strong></p>
 
 <p>Libhdfs is a JNI based C api for Hadoop’s DFS. It provides a simple subset of C apis to manipulate DFS files and the filesystem.</p>
 
@@ -209,6 +250,9 @@ find /usr/lib/hadoop/lib -name *.jar|awk '{ printf("export CLASSPATH=%s:$CLASSPA
 find /usr/lib/hadoop-hdfs/ -name *.jar|awk '{ printf("export CLASSPATH=%s:$CLASSPATH\n", $0); }' &gt;&gt; hdfs_jni.sh
 find /usr/lib/hadoop-hdfs/lib/ -name *.jar|awk '{ printf("export CLASSPATH=%s:$CLASSPATH\n", $0); }' &gt;&gt; hdfs_jni.sh
 </code></pre>
+
+<hr />
+<hr />
 
 <h3 id="span-stylecolor-greencompile-unicapspan"><span style="color: Green">Compile UniCAP</span></h3>
 <pre><code>git clone https://github.com/sunpengsdu/unicap

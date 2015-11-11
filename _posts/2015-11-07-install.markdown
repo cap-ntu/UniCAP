@@ -19,7 +19,9 @@ We provide an Docker image with the stable version of UniCAP installed. Users ca
 
 ####<span style="color: blue">C++ Compiler</span>
 
-UniCAP needs a C++ compiler supporting c++11, such as gcc >= 4.7.2 (prefer >= 4.8) or llvm >= 3.4. You can update gcc via either downloading packages, or building from source. For instance, we can upgrade gcc via ppa in ubuntu:
+UniCAP needs a C++ compiler supporting c++11, such as gcc >= 4.7.2 (prefer >= 4.8) or llvm >= 3.4. You can update gcc via either downloading packages, or building from source. 
+
+**1) Ubuntu 12.04**
 
     sudo apt-get install python-software-properties
     sudo add-apt-repository ppa:ubuntu-toolchain-r/test
@@ -34,21 +36,43 @@ After that, check the gcc version via:
 
     gcc --version
     
+2) **2) Ubuntu 14.04**
+
+Ubuntu 14.04 contains gcc-4.8 in its system software system. 
+Check the gcc version:
+
+    gcc --version 
+
+---    
+    
 ####<span style="color: blue">Boost Library</span>
     
-UniCAP needs boost library >= 1.54 (prefer >= 1.55). You can install boost via ppa in ubuntu:
+UniCAP needs boost library >= 1.54 (prefer >= 1.55). 
 
-1) Add ppa:boost-latest/ppa to your system's software sources based on the instructions in 
+**1) Ubuntu 12.04**
 
-    https://launchpad.net/~boost-latest/+archive/ubuntu/ppa
+You can install boost via ppa in ubuntu 12.04:
+
+Add ppa:boost-latest/ppa to your system's software sources based on the instructions in 
+
+[https://launchpad.net/~boost-latest/+archive/ubuntu/ppa](https://launchpad.net/~boost-latest/+archive/ubuntu/ppa)
+ 
+
+Update your system's software sources:
+
+    sudo apt-get update
     
-2) Update your system's software sources:
+Install boost 1.55:
 
-    sudo apt-get update'
+	sudo apt-get install libboost1.55-all-dev
     
-3) Install boost 1.55:
+ **2) Ubuntu 14.04**   
+ 
+ Ubuntu 14.04 contains boost1.55
+ 
+ 	sudo apt-get install libboost1.55-all-dev
 
-    sudo apt-get install libboost1.55-all-dev
+---    
     
 ####<span style="color: blue">Thrift</span> 
 
@@ -66,15 +90,13 @@ UniCAP needs boost library >= 1.54 (prefer >= 1.55). You can install boost via p
     make
     sudo make install
     
+---    
+    
 ####<span style="color: blue">Glog and Gflags</span> 
 
 UniCAP uses glog and gflags to print log data.
 
-#####Ubuntu 14.04
-
-    sudo apt-get install libgflags-dev libgoogle-glog-dev
-
-#####Ubuntu 12.04
+**1) Ubuntu 12.04**
 
 Install Glog
 
@@ -94,6 +116,12 @@ Install Gflags
     export CXXFLAGS="-fPIC" && cmake .. && make VERBOSE=1
     make
     sudo make install
+    
+**2) Ubuntu 14.04**
+
+sudo apt-get install libgflags-dev libgoogle-glog-dev
+
+---
 
 ####<span style="color: blue">LevelDB</span> 
 
@@ -101,17 +129,32 @@ UniCAP uses LevelDB as one of its storage systems.
 
     sudo apt-get install libleveldb-dev libsnappy-dev
 
+---    
+
+####<span style="color: blue">OpenCV2</span> 
+
+UniCAP uses OpenCV2 run image related applictions.
+
+    wget https://github.com/Itseez/opencv/archive/2.4.11.zip
+    unzip 2.4.11.zip
+    ./configure
+    make 
+    sudo make install
+---
+
 ####<span style="color: blue">MPI</span> 
 
 UniCAP uses MPI to parallel the application.
 
     sudo apt-get install libopenmpi-dev openmpi-bin openmpi-common openmpi-doc
 
+---
+
 ####<span style="color: blue">HDFS</span> 
 
 To work with Hadoop Distributed File System using C++, there are two choices:
 
-1) libhdfs3
+**1) libhdfs3**
 
 Libhdfs3 a native c/c++ hdfs client (there is no need to rely Java to work with HDFS in application layer).
 
@@ -124,7 +167,7 @@ To compile libhdfs3, users need following libraries:
     sudo apt-get install libgsasl7 libgsasl7-dev 
 
 
-2) libhdfs
+**2) libhdfs**
 
 Libhdfs is a JNI based C api for Hadoop's DFS. It provides a simple subset of C apis to manipulate DFS files and the filesystem. 
 
@@ -143,6 +186,9 @@ Sometimes, the JNI-based application cannot find the needed jar packets for HDFS
     find /usr/lib/hadoop/lib -name *.jar|awk '{ printf("export CLASSPATH=%s:$CLASSPATH\n", $0); }' >> hdfs_jni.sh
     find /usr/lib/hadoop-hdfs/ -name *.jar|awk '{ printf("export CLASSPATH=%s:$CLASSPATH\n", $0); }' >> hdfs_jni.sh
     find /usr/lib/hadoop-hdfs/lib/ -name *.jar|awk '{ printf("export CLASSPATH=%s:$CLASSPATH\n", $0); }' >> hdfs_jni.sh
+    
+---
+---
 
 ###<span style="color: Green">Compile UniCAP</span>
     git clone https://github.com/sunpengsdu/unicap
