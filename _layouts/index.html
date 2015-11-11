@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>UNICAP</title>
+    <title>UniCAP</title>
 
     <link rel="stylesheet" href="{{site.baseurl}}/css/stylesheets/styles.css">
     <link rel="stylesheet" href="{{site.baseurl}}/css/stylesheets/github-light.css">
@@ -16,25 +16,27 @@
     <div class="wrapper">
       <header>
         <h1>
-          <a class="post-link" href="{{ site.baseurl }}/">UNICAP</a>
+          <a class="post-link" href="{{ site.baseurl }}/"> UniCAP </a>
         </h1>
         <p>An Unified Computing Engine For Fast Data Processing</p>
 
        <!-- <p class="view"><a href="https://github.com/sunpengsdu/unicap">View the Project on GitHub <small>sunpengsdu/unicap</small></a></p>-->
-        <p class="view">
+
 
         {% for post in site.posts %}
+        <h3>
+        <p class="view">
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        {% endfor %}
-                
         </p> 
-
+        </h3>
+        {% endfor %} 
 
         <ul>
           <li><a href="https://github.com/sunpengsdu/unicap/zipball/master">Download <strong>ZIP File</strong></a></li>
           <li><a href="https://github.com/sunpengsdu/unicap/tarball/master">Download <strong>TAR Ball</strong></a></li>
           <li><a href="https://github.com/sunpengsdu/unicap">View On <strong>GitHub</strong></a></li>
         </ul>
+       
       </header>
       <section>
          
@@ -45,6 +47,8 @@
         {% endfor %}
 
       </section>
+
+
       <footer>
         <p>This project is maintained by <a href="https://github.com/sunpengsdu">sunpengsdu</a></p>
       </footer>
