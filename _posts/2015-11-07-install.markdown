@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Install"
+title:  "Install UniCAP"
 categories: unicap
 ---
 #Install UniCAP
@@ -36,7 +36,7 @@ After that, check the gcc version via:
 
     gcc --version
     
-2) **2) Ubuntu 14.04**
+**2) Ubuntu 14.04**
 
 Ubuntu 14.04 contains gcc-4.8 in its system software system. 
 Check the gcc version:
@@ -156,7 +156,7 @@ To work with Hadoop Distributed File System using C++, there are two choices:
 
 **1) libhdfs3**
 
-Libhdfs3 a native c/c++ hdfs client (there is no need to rely Java to work with HDFS in application layer).
+Libhdfs3 a native c/c++ hdfs client (there is no need to use Java to work with HDFS in application layer).
 
 Refer to [https://github.com/PivotalRD/libhdfs3](https://github.com/PivotalRD/libhdfs3)
 

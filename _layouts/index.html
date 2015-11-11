@@ -22,15 +22,15 @@
 
        <!-- <p class="view"><a href="https://github.com/sunpengsdu/unicap">View the Project on GitHub <small>sunpengsdu/unicap</small></a></p>-->
 
+        <h3>
         {% for post in site.posts %}
-          {% if post.title == "Install" or post.title == "Getting Started" or post.title == "Example" or post.title == "Document" %}
-            <h3>
-              <p class="view">
-                  <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-              </p> 
-            </h3>
+          {% if post.title == "Install UniCAP" or post.title == "Getting Started" or post.title == "Example" or post.title == "Document" %}
+            <p class="view">
+              <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+            </p> 
           {% endif %}
         {% endfor %}
+        </h3>
 
         <h3>
         <p class="view">
