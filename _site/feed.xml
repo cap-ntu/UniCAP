@@ -6,8 +6,8 @@
 </description>
     <link>http://yourdomain.com/UniCAP/</link>
     <atom:link href="http://yourdomain.com/UniCAP/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 11 Nov 2015 11:41:45 +0800</pubDate>
-    <lastBuildDate>Wed, 11 Nov 2015 11:41:45 +0800</lastBuildDate>
+    <pubDate>Wed, 11 Nov 2015 11:59:30 +0800</pubDate>
+    <lastBuildDate>Wed, 11 Nov 2015 11:59:30 +0800</lastBuildDate>
     <generator>Jekyll v3.0.0</generator>
     
       <item>
@@ -23,9 +23,9 @@
 
 &lt;h2 id=&quot;installing-from-source&quot;&gt;Installing From Source&lt;/h2&gt;
 
-&lt;h3 id=&quot;font-colorgreenrequirementsfont&quot;&gt;&amp;lt;font color=Green&amp;gt;Requirements&amp;lt;/font&amp;gt;&lt;/h3&gt;
+&lt;h3 id=&quot;span-stylecolor-greenrequirementsspan&quot;&gt;&lt;span style=&quot;color: Green&quot;&gt;Requirements&lt;/span&gt;&lt;/h3&gt;
 
-&lt;h4 id=&quot;font-colorbluec-compilerfont&quot;&gt;&amp;lt;font color=blue&amp;gt;C++ Compiler&amp;lt;/font&amp;gt;&lt;/h4&gt;
+&lt;h4 id=&quot;span-stylecolor-bluec-compilerspan&quot;&gt;&lt;span style=&quot;color: blue&quot;&gt;C++ Compiler&lt;/span&gt;&lt;/h4&gt;
 
 &lt;p&gt;UniCAP needs a C++ compiler supporting c++11, such as gcc &amp;gt;= 4.7.2 (prefer &amp;gt;= 4.8) or llvm &amp;gt;= 3.4. You can update gcc via either downloading packages, or building from source. For instance, we can upgrade gcc via ppa in ubuntu:&lt;/p&gt;
 
@@ -44,7 +44,7 @@ sudo update-alternatives --config g++
 &lt;pre&gt;&lt;code&gt;gcc --version
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&quot;font-colorblueboost-libraryfont&quot;&gt;&amp;lt;font color=blue&amp;gt;Boost Library&amp;lt;/font&amp;gt;&lt;/h4&gt;
+&lt;h4 id=&quot;span-stylecolor-blueboost-libraryspan&quot;&gt;&lt;span style=&quot;color: blue&quot;&gt;Boost Library&lt;/span&gt;&lt;/h4&gt;
 
 &lt;p&gt;UniCAP needs boost library &amp;gt;= 1.54 (prefer &amp;gt;= 1.55). You can install boost via ppa in ubuntu:&lt;/p&gt;
 
@@ -63,7 +63,7 @@ sudo update-alternatives --config g++
 &lt;pre&gt;&lt;code&gt;sudo apt-get install libboost1.55-all-dev
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&quot;font-colorbluethriftfont&quot;&gt;&amp;lt;font color=blue&amp;gt;Thrift&amp;lt;/font&amp;gt;&lt;/h4&gt;
+&lt;h4 id=&quot;span-stylecolor-bluethriftspan&quot;&gt;&lt;span style=&quot;color: blue&quot;&gt;Thrift&lt;/span&gt;&lt;/h4&gt;
 
 &lt;p&gt;1) Install thrift dependencies:&lt;/p&gt;
 
@@ -81,7 +81,7 @@ make
 sudo make install
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&quot;font-colorblueglog-and-gflagsfont&quot;&gt;&amp;lt;font color=blue&amp;gt;Glog and Gflags&amp;lt;/font&amp;gt;&lt;/h4&gt;
+&lt;h4 id=&quot;span-stylecolor-blueglog-and-gflagsspan&quot;&gt;&lt;span style=&quot;color: blue&quot;&gt;Glog and Gflags&lt;/span&gt;&lt;/h4&gt;
 
 &lt;p&gt;UniCAP uses glog and gflags to print log data.&lt;/p&gt;
 
@@ -113,21 +113,21 @@ make
 sudo make install
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&quot;font-colorblueleveldbfont&quot;&gt;&amp;lt;font color=blue&amp;gt;LevelDB&amp;lt;/font&amp;gt;&lt;/h4&gt;
+&lt;h4 id=&quot;span-stylecolor-blueleveldbspan&quot;&gt;&lt;span style=&quot;color: blue&quot;&gt;LevelDB&lt;/span&gt;&lt;/h4&gt;
 
 &lt;p&gt;UniCAP uses LevelDB as one of its storage systems.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;sudo apt-get install libleveldb-dev libsnappy-dev
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&quot;font-colorbluempifont&quot;&gt;&amp;lt;font color=blue&amp;gt;MPI&amp;lt;/font&amp;gt;&lt;/h4&gt;
+&lt;h4 id=&quot;span-stylecolor-bluempispan&quot;&gt;&lt;span style=&quot;color: blue&quot;&gt;MPI&lt;/span&gt;&lt;/h4&gt;
 
 &lt;p&gt;UniCAP uses MPI to parallel the application.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;sudo apt-get install libopenmpi-dev openmpi-bin openmpi-common openmpi-doc
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&quot;font-colorbluehdfsfont&quot;&gt;&amp;lt;font color=blue&amp;gt;HDFS&amp;lt;/font&amp;gt;&lt;/h4&gt;
+&lt;h4 id=&quot;span-stylecolor-bluehdfsspan&quot;&gt;&lt;span style=&quot;color: blue&quot;&gt;HDFS&lt;/span&gt;&lt;/h4&gt;
 
 &lt;p&gt;To work with Hadoop Distributed File System using C++, there are two choices:&lt;/p&gt;
 
@@ -166,7 +166,7 @@ find /usr/lib/hadoop-hdfs/ -name *.jar|awk &#39;{ printf(&quot;export CLASSPATH=
 find /usr/lib/hadoop-hdfs/lib/ -name *.jar|awk &#39;{ printf(&quot;export CLASSPATH=%s:$CLASSPATH\n&quot;, $0); }&#39; &amp;gt;&amp;gt; hdfs_jni.sh
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&quot;font-colorgreencompile-unicapfont&quot;&gt;&amp;lt;font color=Green&amp;gt;Compile UniCAP&amp;lt;/font&amp;gt;&lt;/h3&gt;
+&lt;h3 id=&quot;span-stylecolor-greencompile-unicapspan&quot;&gt;&lt;span style=&quot;color: Green&quot;&gt;Compile UniCAP&lt;/span&gt;&lt;/h3&gt;
 &lt;pre&gt;&lt;code&gt;git clone https://github.com/sunpengsdu/unicap
 cd unicap/build
 cmake ..

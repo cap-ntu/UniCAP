@@ -67,9 +67,9 @@
 
 <h2 id="installing-from-source">Installing From Source</h2>
 
-<h3 id="font-colorgreenrequirementsfont">&lt;font color=Green&gt;Requirements&lt;/font&gt;</h3>
+<h3 id="span-stylecolor-greenrequirementsspan"><span style="color: Green">Requirements</span></h3>
 
-<h4 id="font-colorbluec-compilerfont">&lt;font color=blue&gt;C++ Compiler&lt;/font&gt;</h4>
+<h4 id="span-stylecolor-bluec-compilerspan"><span style="color: blue">C++ Compiler</span></h4>
 
 <p>UniCAP needs a C++ compiler supporting c++11, such as gcc &gt;= 4.7.2 (prefer &gt;= 4.8) or llvm &gt;= 3.4. You can update gcc via either downloading packages, or building from source. For instance, we can upgrade gcc via ppa in ubuntu:</p>
 
@@ -88,7 +88,7 @@ sudo update-alternatives --config g++
 <pre><code>gcc --version
 </code></pre>
 
-<h4 id="font-colorblueboost-libraryfont">&lt;font color=blue&gt;Boost Library&lt;/font&gt;</h4>
+<h4 id="span-stylecolor-blueboost-libraryspan"><span style="color: blue">Boost Library</span></h4>
 
 <p>UniCAP needs boost library &gt;= 1.54 (prefer &gt;= 1.55). You can install boost via ppa in ubuntu:</p>
 
@@ -107,7 +107,7 @@ sudo update-alternatives --config g++
 <pre><code>sudo apt-get install libboost1.55-all-dev
 </code></pre>
 
-<h4 id="font-colorbluethriftfont">&lt;font color=blue&gt;Thrift&lt;/font&gt;</h4>
+<h4 id="span-stylecolor-bluethriftspan"><span style="color: blue">Thrift</span></h4>
 
 <p>1) Install thrift dependencies:</p>
 
@@ -125,7 +125,7 @@ make
 sudo make install
 </code></pre>
 
-<h4 id="font-colorblueglog-and-gflagsfont">&lt;font color=blue&gt;Glog and Gflags&lt;/font&gt;</h4>
+<h4 id="span-stylecolor-blueglog-and-gflagsspan"><span style="color: blue">Glog and Gflags</span></h4>
 
 <p>UniCAP uses glog and gflags to print log data.</p>
 
@@ -157,21 +157,21 @@ make
 sudo make install
 </code></pre>
 
-<h4 id="font-colorblueleveldbfont">&lt;font color=blue&gt;LevelDB&lt;/font&gt;</h4>
+<h4 id="span-stylecolor-blueleveldbspan"><span style="color: blue">LevelDB</span></h4>
 
 <p>UniCAP uses LevelDB as one of its storage systems.</p>
 
 <pre><code>sudo apt-get install libleveldb-dev libsnappy-dev
 </code></pre>
 
-<h4 id="font-colorbluempifont">&lt;font color=blue&gt;MPI&lt;/font&gt;</h4>
+<h4 id="span-stylecolor-bluempispan"><span style="color: blue">MPI</span></h4>
 
 <p>UniCAP uses MPI to parallel the application.</p>
 
 <pre><code>sudo apt-get install libopenmpi-dev openmpi-bin openmpi-common openmpi-doc
 </code></pre>
 
-<h4 id="font-colorbluehdfsfont">&lt;font color=blue&gt;HDFS&lt;/font&gt;</h4>
+<h4 id="span-stylecolor-bluehdfsspan"><span style="color: blue">HDFS</span></h4>
 
 <p>To work with Hadoop Distributed File System using C++, there are two choices:</p>
 
@@ -210,7 +210,7 @@ find /usr/lib/hadoop-hdfs/ -name *.jar|awk '{ printf("export CLASSPATH=%s:$CLASS
 find /usr/lib/hadoop-hdfs/lib/ -name *.jar|awk '{ printf("export CLASSPATH=%s:$CLASSPATH\n", $0); }' &gt;&gt; hdfs_jni.sh
 </code></pre>
 
-<h3 id="font-colorgreencompile-unicapfont">&lt;font color=Green&gt;Compile UniCAP&lt;/font&gt;</h3>
+<h3 id="span-stylecolor-greencompile-unicapspan"><span style="color: Green">Compile UniCAP</span></h3>
 <pre><code>git clone https://github.com/sunpengsdu/unicap
 cd unicap/build
 cmake ..

@@ -12,11 +12,12 @@ We provide an Docker image with the stable version of UniCAP installed. Users ca
 
 [Using UniCAP in BDP].
 
+
 ##Installing From Source
     
-###<font color=Green>Requirements</font>
+###<span style="color: Green">Requirements</span>
 
-####<font color=blue>C++ Compiler</font>
+####<span style="color: blue">C++ Compiler</span>
 
 UniCAP needs a C++ compiler supporting c++11, such as gcc >= 4.7.2 (prefer >= 4.8) or llvm >= 3.4. You can update gcc via either downloading packages, or building from source. For instance, we can upgrade gcc via ppa in ubuntu:
 
@@ -33,7 +34,7 @@ After that, check the gcc version via:
 
     gcc --version
     
-####<font color=blue>Boost Library</font>
+####<span style="color: blue">Boost Library</span>
     
 UniCAP needs boost library >= 1.54 (prefer >= 1.55). You can install boost via ppa in ubuntu:
 
@@ -49,7 +50,7 @@ UniCAP needs boost library >= 1.54 (prefer >= 1.55). You can install boost via p
 
     sudo apt-get install libboost1.55-all-dev
     
-####<font color=blue>Thrift</font> 
+####<span style="color: blue">Thrift</span> 
 
 1) Install thrift dependencies:
 
@@ -65,7 +66,7 @@ UniCAP needs boost library >= 1.54 (prefer >= 1.55). You can install boost via p
     make
     sudo make install
     
-####<font color=blue>Glog and Gflags</font> 
+####<span style="color: blue">Glog and Gflags</span> 
 
 UniCAP uses glog and gflags to print log data.
 
@@ -94,19 +95,19 @@ Install Gflags
     make
     sudo make install
 
-####<font color=blue>LevelDB</font> 
+####<span style="color: blue">LevelDB</span> 
 
 UniCAP uses LevelDB as one of its storage systems.
 
     sudo apt-get install libleveldb-dev libsnappy-dev
 
-####<font color=blue>MPI</font> 
+####<span style="color: blue">MPI</span> 
 
 UniCAP uses MPI to parallel the application.
 
     sudo apt-get install libopenmpi-dev openmpi-bin openmpi-common openmpi-doc
 
-####<font color=blue>HDFS</font> 
+####<span style="color: blue">HDFS</span> 
 
 To work with Hadoop Distributed File System using C++, there are two choices:
 
@@ -143,7 +144,7 @@ Sometimes, the JNI-based application cannot find the needed jar packets for HDFS
     find /usr/lib/hadoop-hdfs/ -name *.jar|awk '{ printf("export CLASSPATH=%s:$CLASSPATH\n", $0); }' >> hdfs_jni.sh
     find /usr/lib/hadoop-hdfs/lib/ -name *.jar|awk '{ printf("export CLASSPATH=%s:$CLASSPATH\n", $0); }' >> hdfs_jni.sh
 
-###<font color=Green>Compile UniCAP</font>
+###<span style="color: Green">Compile UniCAP</span>
     git clone https://github.com/sunpengsdu/unicap
     cd unicap/build
     cmake ..
