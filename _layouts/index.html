@@ -16,20 +16,24 @@
     <div class="wrapper">
       <header>
         <h1>
-          <a class="post-link" href="{{ site.baseurl }}/"> UniCAP </a>
+          <a class="post-link" href="{{site.baseurl}}/"> UniCAP </a>
         </h1>
-        <p>An Unified Computing Engine For Fast Data Processing</p>
+        <p>A Unified Computing Engine For Fast Data Processing</p>
 
        <!-- <p class="view"><a href="https://github.com/sunpengsdu/unicap">View the Project on GitHub <small>sunpengsdu/unicap</small></a></p>-->
 
-
         {% for post in site.posts %}
-        <h3>
-        <p class="view">
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </p> 
-        </h3>
-        {% endfor %} 
+          {% if post.title == "Install" 
+            or post.title == "Getting Started" 
+            or post.title == "Example" 
+            or post.title == "Document" %}
+            <h3>
+              <p class="view">
+                  <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{post.title }}</a>
+              </p> 
+            </h3>
+          {% endif %}
+        {% endfor %}
 
         <h3>
         <p class="view">
@@ -53,7 +57,7 @@
       <section>
          
         {% for post in site.posts %}
-          {% if post.title == "hello" %}
+          {% if post.title == "index" %}
             {{post.content}}
           {% endif %}
         {% endfor %}
