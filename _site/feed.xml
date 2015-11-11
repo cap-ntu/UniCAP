@@ -6,8 +6,8 @@
 </description>
     <link>http://yourdomain.com/UniCAP/</link>
     <atom:link href="http://yourdomain.com/UniCAP/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 12 Nov 2015 00:03:43 +0800</pubDate>
-    <lastBuildDate>Thu, 12 Nov 2015 00:03:43 +0800</lastBuildDate>
+    <pubDate>Thu, 12 Nov 2015 00:11:04 +0800</pubDate>
+    <lastBuildDate>Thu, 12 Nov 2015 00:11:04 +0800</lastBuildDate>
     <generator>Jekyll v3.0.0</generator>
     
       <item>
@@ -234,7 +234,9 @@ make -j8
 
 &lt;p&gt;The UniCAP project is a distributed computing engine for executing data parallel programmes, which consist of a complex of  directed-acyclic-graph (DAG) of tasks. It unifies &lt;em&gt;Batch Processing&lt;/em&gt; and &lt;em&gt;Stream Processing&lt;/em&gt; into one system using a &lt;strong&gt;timed dataflow model&lt;/strong&gt;. Clients can either use UniCAP in NTU &lt;a href=&quot;http://155.69.146.43/bdp&quot;&gt;Big Data Platform (BDP)&lt;/a&gt;, or build from source codes.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/UniCAP/img/unicap_sys.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;div align=&quot;center&quot;&gt;    
+&amp;lt;img src=&quot;http://cap-ntu.github.io/UniCAP/img/unicap_sys.jpg&quot; width = &quot;500&quot; align=center /&amp;gt;
+&lt;/div&gt;
 
 &lt;p&gt;The main design themes for UniCAP are:&lt;/p&gt;
 
