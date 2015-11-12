@@ -6,11 +6,10 @@ categories: unicap
 #<span style="color: #4499ee">UniCAP: A Unified Computing Engine for Fast Data Processing</span> 
 ---
 
-The UniCAP project is a distributed computing engine for executing data parallel programmes, which consist of a complex of  directed-acyclic-graph (DAG) of tasks. It unifies *Batch Processing* and *Stream Processing* into one system using a **timed dataflow model**. Clients can either use UniCAP in NTU [Big Data Platform (BDP)](http://155.69.146.43/bdp), or build from source codes.
-
+The UniCAP project is a distributed computing engine for executing data parallel programmes, which consist of a complex of  directed-acyclic-graph (DAG) of tasks. It unifies *Batch Processing* and *Stream Processing* into one system using a **timed dataflow model**. Clients can either use UniCAP in NTU [Big Data Platform (BDP)](http://155.69.146.43/bdp), or build from source codes. 
 
 <div  align="center">    
-<img src="http://cap-ntu.github.io/UniCAP/img/unicap_sys.jpg" width = "500" align=center />
+<img src="http://cap-ntu.github.io/UniCAP/img/unicap_sys.jpg" width="400" />
 </div>
 
 
