@@ -6,8 +6,8 @@
 </description>
     <link>http://yourdomain.com/UniCAP/</link>
     <atom:link href="http://yourdomain.com/UniCAP/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 12 Nov 2015 10:56:08 +0800</pubDate>
-    <lastBuildDate>Thu, 12 Nov 2015 10:56:08 +0800</lastBuildDate>
+    <pubDate>Thu, 12 Nov 2015 11:47:57 +0800</pubDate>
+    <lastBuildDate>Thu, 12 Nov 2015 11:47:57 +0800</lastBuildDate>
     <generator>Jekyll v3.0.0</generator>
     
       <item>
@@ -235,17 +235,26 @@ make -j8
 &lt;p&gt;The UniCAP project is a distributed computing engine for executing data parallel programmes, which consist of a complex of  directed-acyclic-graph (DAG) of tasks. It unifies &lt;em&gt;Batch Processing&lt;/em&gt; and &lt;em&gt;Stream Processing&lt;/em&gt; in one system using a &lt;strong&gt;timed dataflow model&lt;/strong&gt;. Clients can either use UniCAP in NTU &lt;a href=&quot;http://155.69.146.43/bdp&quot;&gt;Big Data Platform (BDP)&lt;/a&gt;, or build from source codes.&lt;/p&gt;
 
 &lt;div align=&quot;center&quot;&gt;    
-&lt;img src=&quot;http://cap-ntu.github.io/UniCAP/img/unicap_sys.jpg&quot; width=&quot;400&quot; /&gt;
+&lt;img src=&quot;http://cap-ntu.github.io/UniCAP/img/unicap_sys.jpg&quot; width=&quot;450&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;The main design features of UniCAP are:&lt;/p&gt;
 
 &lt;h3 id=&quot;span-stylecolor-43a102timed-dataflowspan&quot;&gt;&lt;span style=&quot;color: #43a102&quot;&gt;Timed Dataflow&lt;/span&gt;&lt;/h3&gt;
 
-&lt;p&gt;Timed dataflow&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Timed Dataflow&lt;/strong&gt; aims at reducing the communication overhead for iterative jobs with shared variables. In such jobs, the edge node reads input data and shared variables, and updates the shared variables at each iteration. This kind of application includes:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;Supervised Machine Learning&lt;/em&gt;: To train a model, the supervised machine learning applications (e.g., logistic regression, artificial neural network, etc.) need to update the parameters, which are the shared variables, based on the input data and old parameters at each iteration.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Graph Processing&lt;/em&gt;: The graph processing jobs (e.g., single source shortest path, pagerank, etc.) usually update the graph nodes’ weights, which are the shared variables, based on the graph data and old weights at each iteration.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Precious approaches like Hadoop, Spark have high communication overhead to fetch all the shared variables at each iteration. Our experiments show that the shared variable query time can take up to &lt;strong&gt;60%&lt;/strong&gt; of total execution time of an iteration. However, our experiments also show that a large part of shared variables are &lt;strong&gt;static values&lt;/strong&gt; during the computation. However, previous approaches always fetch all the shared variables, even if there is no change.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Time Dataflow&lt;/strong&gt; tackles this problem by adding logical timestamp to the shared variables. Thus, at each iteration, the computation nodes (which caches the old shared variables in previous iteration) only need to fetch the changed shared variables rather than all the shared variables. Experiments show that &lt;strong&gt;timed dataflow&lt;/strong&gt; can accelerate logistic regression and pagerank 30% and 45% respectively, compared to Spark.&lt;/p&gt;
 
 &lt;div align=&quot;center&quot;&gt;    
-&lt;img src=&quot;http://cap-ntu.github.io/UniCAP/img/timed_data_flow.jpg&quot; width=&quot;450&quot; /&gt;
+&lt;img src=&quot;http://cap-ntu.github.io/UniCAP/img/timed_data_flow.jpg&quot; width=&quot;480&quot; /&gt;
 &lt;/div&gt;
 </description>
         <pubDate>Sat, 07 Nov 2015 00:00:00 +0800</pubDate>

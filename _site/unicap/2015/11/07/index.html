@@ -79,17 +79,26 @@
 <p>The UniCAP project is a distributed computing engine for executing data parallel programmes, which consist of a complex of  directed-acyclic-graph (DAG) of tasks. It unifies <em>Batch Processing</em> and <em>Stream Processing</em> in one system using a <strong>timed dataflow model</strong>. Clients can either use UniCAP in NTU <a href="http://155.69.146.43/bdp">Big Data Platform (BDP)</a>, or build from source codes.</p>
 
 <div align="center">    
-<img src="http://cap-ntu.github.io/UniCAP/img/unicap_sys.jpg" width="400" />
+<img src="http://cap-ntu.github.io/UniCAP/img/unicap_sys.jpg" width="450" />
 </div>
 
 <p>The main design features of UniCAP are:</p>
 
 <h3 id="span-stylecolor-43a102timed-dataflowspan"><span style="color: #43a102">Timed Dataflow</span></h3>
 
-<p>Timed dataflow</p>
+<p><strong>Timed Dataflow</strong> aims at reducing the communication overhead for iterative jobs with shared variables. In such jobs, the edge node reads input data and shared variables, and updates the shared variables at each iteration. This kind of application includes:</p>
+
+<ul>
+  <li><em>Supervised Machine Learning</em>: To train a model, the supervised machine learning applications (e.g., logistic regression, artificial neural network, etc.) need to update the parameters, which are the shared variables, based on the input data and old parameters at each iteration.</li>
+  <li><em>Graph Processing</em>: The graph processing jobs (e.g., single source shortest path, pagerank, etc.) usually update the graph nodes’ weights, which are the shared variables, based on the graph data and old weights at each iteration.</li>
+</ul>
+
+<p>Precious approaches like Hadoop, Spark have high communication overhead to fetch all the shared variables at each iteration. Our experiments show that the shared variable query time can take up to <strong>60%</strong> of total execution time of an iteration. However, our experiments also show that a large part of shared variables are <strong>static values</strong> during the computation. However, previous approaches always fetch all the shared variables, even if there is no change.</p>
+
+<p><strong>Time Dataflow</strong> tackles this problem by adding logical timestamp to the shared variables. Thus, at each iteration, the computation nodes (which caches the old shared variables in previous iteration) only need to fetch the changed shared variables rather than all the shared variables. Experiments show that <strong>timed dataflow</strong> can accelerate logistic regression and pagerank 30% and 45% respectively, compared to Spark.</p>
 
 <div align="center">    
-<img src="http://cap-ntu.github.io/UniCAP/img/timed_data_flow.jpg" width="450" />
+<img src="http://cap-ntu.github.io/UniCAP/img/timed_data_flow.jpg" width="480" />
 </div>
 
 
