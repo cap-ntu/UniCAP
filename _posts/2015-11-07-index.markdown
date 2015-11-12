@@ -13,3 +13,9 @@ The UniCAP project is a distributed computing engine for executing data parallel
 </div>
 
 ##<span style="color: #43a102">Timed Dataflow</span>
+
+Timed dataflow
+
+<div  align="center">    
+<img src="http://cap-ntu.github.io/UniCAP/img/timed_data_flow.jpg" width="350" />
+</div>
