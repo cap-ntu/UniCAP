@@ -3,22 +3,43 @@ layout: post
 title:  "Getting Started"
 categories: unicap
 ---
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+#<span style="color: #4499ee">Getting Started</span> 
+---
 
-To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+<div  align="center">    
+<img src="http://cap-ntu.github.io/UniCAP/img/unicap_start.jpg" width="400" />
+</div>
 
-Jekyll also offers powerful support for code snippets:
+###<span style="color: #43a102">Define the Vertex</span>
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
+    ntu::cap::DAG::create_table (table_name, shard_num, partition_algo)
+    ntu::cap::DAG::create_cf<T> (table_name, cf_name, cf_type)
+    ntu::cap::DAG::load_from_hdfs (hdfs_path, table_name, cf_name)
+    ntu::cap::DAG::load_local_file (local_path, table_name, cf_name)
+    
+###<span style="color: #43a102">Define the Edge (Input/Output Path)</span>
 
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+    ntu::cap::Storage::vector_put<T> 
+    ntu::cap::Storage::vector_get<T>
+    ntu::cap::Storage::scan<T>
+    ntu::cap::Storage::timed_put<T> 
+    ntu::cap::Storage::timed_scan<T>
+    
+###<span style="color: #43a102">Define the Edge (Computing Functions)</span>
 
-[jekyll-docs]: http://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+    class UCPUFunctions : public CPUFunctions {
+    public:
+	    static UCPUFunctions& singleton() {
+	        static UCPUFunctions u_cpu_function;
+	        return u_cpu_function;
+	    }
+	
+	    UCPUFunctions() : CPUFunctions() {
+	        CPUFunctions::_cpu_functions_p["User_functions"] = hello_world;
+	    }
+	
+	    static int64_t User_functions (TaskNode new_task) {
+	        //User implementation
+	        return 1;
+	    }
+    }

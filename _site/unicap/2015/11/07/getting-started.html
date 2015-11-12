@@ -44,10 +44,6 @@
           
         
           
-            <p class="view">
-              <a class="post-link" href="/UniCAP/unicap/2015/11/07/document.html">Document</a>
-            </p> 
-          
         
         </h3>
 
@@ -73,20 +69,49 @@
       </header>
       <section>
          
-         <p>You’ll find this post in your <code>_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code>jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+         <h1 id="span-stylecolor-4499eegetting-startedspan"><span style="color: #4499ee">Getting Started</span></h1>
+<hr />
 
-<p>To add new posts, simply add a file in the <code>_posts</code> directory that follows the convention <code>YYYY-MM-DD-name-of-post.ext</code> and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
+<div align="center">    
+<img src="http://cap-ntu.github.io/UniCAP/img/unicap_start.jpg" width="400" />
+</div>
 
-<p>Jekyll also offers powerful support for code snippets:</p>
+<h3 id="span-stylecolor-43a102define-the-vertexspan"><span style="color: #43a102">Define the Vertex</span></h3>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
-<span class="k">end</span>
-<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
-<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
+<pre><code>ntu::cap::DAG::create_table (table_name, shard_num, partition_algo)
+ntu::cap::DAG::create_cf&lt;T&gt; (table_name, cf_name, cf_type)
+ntu::cap::DAG::load_from_hdfs (hdfs_path, table_name, cf_name)
+ntu::cap::DAG::load_local_file (local_path, table_name, cf_name)
+</code></pre>
 
-<p>Check out the <a href="http://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>
+<h3 id="span-stylecolor-43a102define-the-edge-inputoutput-pathspan"><span style="color: #43a102">Define the Edge (Input/Output Path)</span></h3>
 
+<pre><code>ntu::cap::Storage::vector_put&lt;T&gt; 
+ntu::cap::Storage::vector_get&lt;T&gt;
+ntu::cap::Storage::scan&lt;T&gt;
+ntu::cap::Storage::timed_put&lt;T&gt; 
+ntu::cap::Storage::timed_scan&lt;T&gt;
+</code></pre>
+
+<h3 id="span-stylecolor-43a102define-the-edge-computing-functionsspan"><span style="color: #43a102">Define the Edge (Computing Functions)</span></h3>
+
+<pre><code>class UCPUFunctions : public CPUFunctions {
+public:
+    static UCPUFunctions&amp; singleton() {
+        static UCPUFunctions u_cpu_function;
+        return u_cpu_function;
+    }
+
+    UCPUFunctions() : CPUFunctions() {
+        CPUFunctions::_cpu_functions_p["User_functions"] = hello_world;
+    }
+
+    static int64_t User_functions (TaskNode new_task) {
+        //User implementation
+        return 1;
+    }
+}
+</code></pre>
 
 
       </section>

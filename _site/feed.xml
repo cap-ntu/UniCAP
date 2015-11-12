@@ -6,8 +6,8 @@
 </description>
     <link>http://yourdomain.com/UniCAP/</link>
     <atom:link href="http://yourdomain.com/UniCAP/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 12 Nov 2015 12:56:18 +0800</pubDate>
-    <lastBuildDate>Thu, 12 Nov 2015 12:56:18 +0800</lastBuildDate>
+    <pubDate>Thu, 12 Nov 2015 13:18:31 +0800</pubDate>
+    <lastBuildDate>Thu, 12 Nov 2015 13:18:31 +0800</lastBuildDate>
     <generator>Jekyll v3.0.0</generator>
     
       <item>
@@ -290,20 +290,49 @@ make -j8
     
       <item>
         <title>Getting Started</title>
-        <description>&lt;p&gt;You’ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+        <description>&lt;h1 id=&quot;span-stylecolor-4499eegetting-startedspan&quot;&gt;&lt;span style=&quot;color: #4499ee&quot;&gt;Getting Started&lt;/span&gt;&lt;/h1&gt;
+&lt;hr /&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;div align=&quot;center&quot;&gt;    
+&lt;img src=&quot;http://cap-ntu.github.io/UniCAP/img/unicap_start.jpg&quot; width=&quot;400&quot; /&gt;
+&lt;/div&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+&lt;h3 id=&quot;span-stylecolor-43a102define-the-vertexspan&quot;&gt;&lt;span style=&quot;color: #43a102&quot;&gt;Define the Vertex&lt;/span&gt;&lt;/h3&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Tom&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &#39;Hi, Tom&#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;pre&gt;&lt;code&gt;ntu::cap::DAG::create_table (table_name, shard_num, partition_algo)
+ntu::cap::DAG::create_cf&amp;lt;T&amp;gt; (table_name, cf_name, cf_type)
+ntu::cap::DAG::load_from_hdfs (hdfs_path, table_name, cf_name)
+ntu::cap::DAG::load_local_file (local_path, table_name, cf_name)
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;span-stylecolor-43a102define-the-edge-inputoutput-pathspan&quot;&gt;&lt;span style=&quot;color: #43a102&quot;&gt;Define the Edge (Input/Output Path)&lt;/span&gt;&lt;/h3&gt;
 
+&lt;pre&gt;&lt;code&gt;ntu::cap::Storage::vector_put&amp;lt;T&amp;gt; 
+ntu::cap::Storage::vector_get&amp;lt;T&amp;gt;
+ntu::cap::Storage::scan&amp;lt;T&amp;gt;
+ntu::cap::Storage::timed_put&amp;lt;T&amp;gt; 
+ntu::cap::Storage::timed_scan&amp;lt;T&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;span-stylecolor-43a102define-the-edge-computing-functionsspan&quot;&gt;&lt;span style=&quot;color: #43a102&quot;&gt;Define the Edge (Computing Functions)&lt;/span&gt;&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;class UCPUFunctions : public CPUFunctions {
+public:
+    static UCPUFunctions&amp;amp; singleton() {
+        static UCPUFunctions u_cpu_function;
+        return u_cpu_function;
+    }
+
+    UCPUFunctions() : CPUFunctions() {
+        CPUFunctions::_cpu_functions_p[&quot;User_functions&quot;] = hello_world;
+    }
+
+    static int64_t User_functions (TaskNode new_task) {
+        //User implementation
+        return 1;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
 </description>
         <pubDate>Sat, 07 Nov 2015 00:00:00 +0800</pubDate>
         <link>http://yourdomain.com/UniCAP/unicap/2015/11/07/getting-started.html</link>
@@ -316,20 +345,14 @@ make -j8
     
       <item>
         <title>Example</title>
-        <description>&lt;p&gt;You’ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+        <description>&lt;h1 id=&quot;span-stylecolor-4499ee-examplespan&quot;&gt;&lt;span style=&quot;color: #4499ee&quot;&gt; Example&lt;/span&gt;&lt;/h1&gt;
+&lt;hr /&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;h3 id=&quot;span-stylecolor-43a102wordcountspan&quot;&gt;&lt;span style=&quot;color: #43a102&quot;&gt;WordCount&lt;/span&gt;&lt;/h3&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Tom&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &#39;Hi, Tom&#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;
-
+&lt;div align=&quot;center&quot;&gt;    
+&lt;img src=&quot;http://cap-ntu.github.io/UniCAP/img/unicap_start.jpg&quot; width=&quot;400&quot; /&gt;
+&lt;/div&gt;
 </description>
         <pubDate>Sat, 07 Nov 2015 00:00:00 +0800</pubDate>
         <link>http://yourdomain.com/UniCAP/unicap/2015/11/07/example.html</link>
@@ -341,21 +364,8 @@ make -j8
       </item>
     
       <item>
-        <title>Document</title>
-        <description>&lt;p&gt;You’ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
-
-&lt;p&gt;To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
-
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Tom&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &#39;Hi, Tom&#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;
-
+        <title>Deveop</title>
+        <description>&lt;p&gt;TO DO&lt;/p&gt;
 </description>
         <pubDate>Sat, 07 Nov 2015 00:00:00 +0800</pubDate>
         <link>http://yourdomain.com/UniCAP/unicap/2015/11/07/document.html</link>
