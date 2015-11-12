@@ -6,8 +6,8 @@
 </description>
     <link>http://yourdomain.com/UniCAP/</link>
     <atom:link href="http://yourdomain.com/UniCAP/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 12 Nov 2015 13:18:31 +0800</pubDate>
-    <lastBuildDate>Thu, 12 Nov 2015 13:18:31 +0800</lastBuildDate>
+    <pubDate>Thu, 12 Nov 2015 13:25:21 +0800</pubDate>
+    <lastBuildDate>Thu, 12 Nov 2015 13:25:21 +0800</lastBuildDate>
     <generator>Jekyll v3.0.0</generator>
     
       <item>
@@ -351,8 +351,54 @@ public:
 &lt;h3 id=&quot;span-stylecolor-43a102wordcountspan&quot;&gt;&lt;span style=&quot;color: #43a102&quot;&gt;WordCount&lt;/span&gt;&lt;/h3&gt;
 
 &lt;div align=&quot;center&quot;&gt;    
-&lt;img src=&quot;http://cap-ntu.github.io/UniCAP/img/unicap_start.jpg&quot; width=&quot;400&quot; /&gt;
+&lt;img src=&quot;http://cap-ntu.github.io/UniCAP/img/unicap_wordcount.jpg&quot; width=&quot;500&quot; /&gt;
 &lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Define the Vertexes&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;DAG::load_hdfs_file(&quot;/dataset/wikipedia_300GB&quot;, 
+	&quot;word_count&quot;,
+	&quot;data_set&quot;,
+	8*1024*1024);
+
+KeyPartition word_count_inter;
+word_count_inter.__set_partition_algo(KeyPartitionAlgo::HashingPartition);
+
+DAG::create_table(&quot;word_count_result&quot;, 50, word_count_inter);
+
+DAG::create_cf(&quot;word_count_result&quot;, 
+	&quot;inner_result&quot;, 
+	StorageType::InMemoryKeyValue, 
+	ValueType::Int64);
+	
+DAG::create_cf(&quot;word_count_result&quot;, 
+	&quot;final_result&quot;, 
+	StorageType::InMemoryKeyValue, 
+	ValueType::Int64);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Define the Edges&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;std::shared_ptr&amp;lt;Stage&amp;gt;stage_map = std::shared_ptr&amp;lt;Stage&amp;gt;(new Stage());
+stage_map-&amp;gt;set_function_name(&quot;word_count_map&quot;);
+std::vector&amp;lt;std::string&amp;gt; src_cf;
+src_cf.push_back(&quot;data_set&quot;);
+stage_map-&amp;gt;set_src(&quot;word_count&quot;, src_cf);
+stage_map-&amp;gt;set_dst(&quot;word_count_result&quot;, &quot;inner_result&quot;);
+Scheduler::singleton().push_back(stage_map);
+
+std::shared_ptr&amp;lt;Stage&amp;gt;stage_reduce = std::shared_ptr&amp;lt;Stage&amp;gt;(new Stage());
+stage_reduce-&amp;gt;set_function_name(&quot;word_count_reduce&quot;);
+std::vector&amp;lt;std::string&amp;gt; dst_cf;
+dst_cf.push_back(&quot;inner_result&quot;);
+stage_reduce-&amp;gt;set_src(&quot;word_count_result&quot;, dst_cf);
+stage_reduce-&amp;gt;set_dst(&quot;word_count_result&quot;, &quot;final_result&quot;);
+Scheduler::singleton().push_back(stage_reduce);
+&lt;/code&gt;&lt;/pre&gt;
 </description>
         <pubDate>Sat, 07 Nov 2015 00:00:00 +0800</pubDate>
         <link>http://yourdomain.com/UniCAP/unicap/2015/11/07/example.html</link>
