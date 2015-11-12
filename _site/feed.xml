@@ -6,8 +6,8 @@
 </description>
     <link>http://yourdomain.com/UniCAP/</link>
     <atom:link href="http://yourdomain.com/UniCAP/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 12 Nov 2015 11:54:27 +0800</pubDate>
-    <lastBuildDate>Thu, 12 Nov 2015 11:54:27 +0800</lastBuildDate>
+    <pubDate>Thu, 12 Nov 2015 12:56:18 +0800</pubDate>
+    <lastBuildDate>Thu, 12 Nov 2015 12:56:18 +0800</lastBuildDate>
     <generator>Jekyll v3.0.0</generator>
     
       <item>
@@ -270,8 +270,14 @@ make -j8
 &lt;/div&gt;
 
 &lt;hr /&gt;
-&lt;p&gt;###&lt;span style=&quot;color: #43a102&quot;&gt;Hybrid Edge (In Development)&lt;/span&gt;&lt;/p&gt;
 
+&lt;h3 id=&quot;span-stylecolor-43a102hybrid-edge-in-developmentspan&quot;&gt;&lt;span style=&quot;color: #43a102&quot;&gt;Hybrid Edge (In Development)&lt;/span&gt;&lt;/h3&gt;
+
+&lt;p&gt;UniCAP supports schedule tasks using both GPU and CPU in a single  application. Compared to other approaches, which can only use CPU or GPU, UniCAP maximize the system resource utilization.&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;    
+&lt;img src=&quot;http://cap-ntu.github.io/UniCAP/img/unicap_gpu.png&quot; width=&quot;400&quot; /&gt;
+&lt;/div&gt;
 </description>
         <pubDate>Sat, 07 Nov 2015 00:00:00 +0800</pubDate>
         <link>http://yourdomain.com/UniCAP/unicap/2015/11/07/index.html</link>

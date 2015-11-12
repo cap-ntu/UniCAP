@@ -42,5 +42,11 @@ UniCAP embodies a set of storage systems as its *Vertexes*. Generally, UniCAP ca
 </div>
 
 ---
+
 ###<span style="color: #43a102">Hybrid Edge (In Development)</span>
 
+UniCAP supports schedule tasks using both GPU and CPU in a single  application. Compared to other approaches, which can only use CPU or GPU, UniCAP maximize the system resource utilization. 
+
+<div  align="center">    
+<img src="http://cap-ntu.github.io/UniCAP/img/unicap_gpu.png" width="400" />
+</div>
