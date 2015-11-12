@@ -6,8 +6,8 @@
 </description>
     <link>http://yourdomain.com/UniCAP/</link>
     <atom:link href="http://yourdomain.com/UniCAP/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 12 Nov 2015 11:47:57 +0800</pubDate>
-    <lastBuildDate>Thu, 12 Nov 2015 11:47:57 +0800</lastBuildDate>
+    <pubDate>Thu, 12 Nov 2015 11:54:27 +0800</pubDate>
+    <lastBuildDate>Thu, 12 Nov 2015 11:54:27 +0800</lastBuildDate>
     <generator>Jekyll v3.0.0</generator>
     
       <item>
@@ -240,6 +240,8 @@ make -j8
 
 &lt;p&gt;The main design features of UniCAP are:&lt;/p&gt;
 
+&lt;hr /&gt;
+
 &lt;h3 id=&quot;span-stylecolor-43a102timed-dataflowspan&quot;&gt;&lt;span style=&quot;color: #43a102&quot;&gt;Timed Dataflow&lt;/span&gt;&lt;/h3&gt;
 
 &lt;p&gt;&lt;strong&gt;Timed Dataflow&lt;/strong&gt; aims at reducing the communication overhead for iterative jobs with shared variables. In such jobs, the edge node reads input data and shared variables, and updates the shared variables at each iteration. This kind of application includes:&lt;/p&gt;
@@ -256,6 +258,20 @@ make -j8
 &lt;div align=&quot;center&quot;&gt;    
 &lt;img src=&quot;http://cap-ntu.github.io/UniCAP/img/timed_data_flow.jpg&quot; width=&quot;480&quot; /&gt;
 &lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;span-stylecolor-43a102hybrid-vertexspan&quot;&gt;&lt;span style=&quot;color: #43a102&quot;&gt;Hybrid Vertex&lt;/span&gt;&lt;/h3&gt;
+
+&lt;p&gt;UniCAP embodies a set of storage systems as its &lt;em&gt;Vertexes&lt;/em&gt;. Generally, UniCAP can support both pure-memory and mix memory-disk storage.&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;    
+&lt;img src=&quot;http://cap-ntu.github.io/UniCAP/img/unicap_storage.png&quot; width=&quot;400&quot; /&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;###&lt;span style=&quot;color: #43a102&quot;&gt;Hybrid Edge (In Development)&lt;/span&gt;&lt;/p&gt;
+
 </description>
         <pubDate>Sat, 07 Nov 2015 00:00:00 +0800</pubDate>
         <link>http://yourdomain.com/UniCAP/unicap/2015/11/07/index.html</link>

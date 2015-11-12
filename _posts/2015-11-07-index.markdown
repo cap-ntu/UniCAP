@@ -14,6 +14,8 @@ The UniCAP project is a distributed computing engine for executing data parallel
 
 The main design features of UniCAP are:
 
+---
+
 ###<span style="color: #43a102">Timed Dataflow</span>
 
 **Timed Dataflow** aims at reducing the communication overhead for iterative jobs with shared variables. In such jobs, the edge node reads input data and shared variables, and updates the shared variables at each iteration. This kind of application includes:
@@ -28,3 +30,17 @@ Precious approaches like Hadoop, Spark have high communication overhead to fetch
 <div  align="center">    
 <img src="http://cap-ntu.github.io/UniCAP/img/timed_data_flow.jpg" width="480" />
 </div>
+
+---
+
+###<span style="color: #43a102">Hybrid Vertex</span>
+
+UniCAP embodies a set of storage systems as its *Vertexes*. Generally, UniCAP can support both pure-memory and mix memory-disk storage. 
+
+<div  align="center">    
+<img src="http://cap-ntu.github.io/UniCAP/img/unicap_storage.png" width="400" />
+</div>
+
+---
+###<span style="color: #43a102">Hybrid Edge (In Development)</span>
+
