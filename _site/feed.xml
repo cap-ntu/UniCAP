@@ -6,8 +6,8 @@
 </description>
     <link>http://yourdomain.com/UniCAP/</link>
     <atom:link href="http://yourdomain.com/UniCAP/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 12 Nov 2015 10:04:46 +0800</pubDate>
-    <lastBuildDate>Thu, 12 Nov 2015 10:04:46 +0800</lastBuildDate>
+    <pubDate>Thu, 12 Nov 2015 10:12:09 +0800</pubDate>
+    <lastBuildDate>Thu, 12 Nov 2015 10:12:09 +0800</lastBuildDate>
     <generator>Jekyll v3.0.0</generator>
     
       <item>
@@ -237,7 +237,6 @@ make -j8
 &lt;div align=&quot;center&quot;&gt;    
 &lt;img src=&quot;http://cap-ntu.github.io/UniCAP/img/unicap_sys.jpg&quot; width=&quot;400&quot; /&gt;
 &lt;/div&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;span-stylecolor-43a102timed-dataflowspan&quot;&gt;&lt;span style=&quot;color: #43a102&quot;&gt;Timed Dataflow&lt;/span&gt;&lt;/h2&gt;
 </description>
