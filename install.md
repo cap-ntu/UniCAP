@@ -1,8 +1,4 @@
----
-layout: post
-title:  "Install UniCAP"
-categories: unicap
----
+
 #Install UniCAP
 These are instructions for installing UniCAP.
 
